@@ -10,17 +10,17 @@ $ python3 predict.py cat1.png cat2.png dog1.png
 
 it will show the classification probabilities as follows:
 
-![image](dataset/classification_result.png)
+![image](classification_result.png)
 
 The classifier identifies the dog image correctly. Now, if we add some noises that are imperceptible to human beings to the dog image. The resulting image file is named *adversarial_example.png*. Let us rerun the classifier.
 
-| ![image](dataset/example.png)  | ![image](dataset/adversarial_example.png)   |
+| ![image](example.png)  | ![image](adversarial_example.png)   |
 |---|---|
 | Example | Adversarial Example   |
 
 Interestingly, the *adversarial_example.png* is miss-classified as a cat!
 
-![image](dataset/adversarial_classification.png)
+![image](adversarial_classification.png)
 
 For the mini-project, you are given three images (cat1.png, cat2.png, dog1.png). Please create their adversarial versions, which will be misclassified by the classifier.
 
