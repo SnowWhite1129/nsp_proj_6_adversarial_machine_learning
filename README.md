@@ -29,6 +29,8 @@ Hint: https://www.tensorflow.org/tutorials/generative/adversarial_fgsm
 # Solution
 
 - Generate adversarial picture in specific folder
+- The answer is in the ./dataset folder
+	-   Filename is animalN_adversarial.png
 
 ```bash
 python3 adversarial.py ./dataset/
