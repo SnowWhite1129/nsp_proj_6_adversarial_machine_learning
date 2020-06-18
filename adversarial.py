@@ -3,7 +3,7 @@ from keras.preprocessing import image
 from keras.activations import relu, softmax
 import keras.backend as K
 from keras.models import load_model
-import os
+import os, sys
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
@@ -26,7 +26,7 @@ def generate_adversarial(img_path):
     epochs = 100
     epsilon = 0.01
 
-    if 'dog' in ima_path:
+    if 'dog' in img_path:
         target_class = 0 # cucumber
     else:
         target_class = 1
@@ -57,7 +57,7 @@ def generate_adversarial(img_path):
         cls_list = ['cat', 'dog']
 
         if pred[0][target_class] > 0.95:
-            print(i, pred[0][target_class], cls_list[0])
+            print(i, pred[0][target_class], cls_list[target_class])
             return x_adv
 
     return x_adv
@@ -65,7 +65,7 @@ def generate_adversarial(img_path):
 
 test = os.listdir(sys.argv[1])
 for testcase in test:
-    img = generate_adversarial(sys.argv[1] + test)
+    img = generate_adversarial(sys.argv[1] + testcase)
     filename = testcase.split('.')
     filename = sys.argv[1] + filename[0] + '_adversarial.png'
-    image.save_image(filename, x_adv)
+    image.save_img(filename, img[0])
